@@ -22,4 +22,5 @@ class DataStoreSerializer(serializers.ModelSerializer):
 
     @property
     def data(self):
-        return super().data['data'] or {}
+        ret = super().data['data'] or {}
+        return serializers.ReturnDict(ret, serializer=self)
