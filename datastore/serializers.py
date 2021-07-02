@@ -9,7 +9,7 @@ class DataStoreSerializer(serializers.ModelSerializer):
     the 'data' field on the DataStore model.
     """
 
-    data = serializers.JSONField(required=True)
+    data = serializers.JSONField(required=True, initial=dict)
 
     class Meta:
         model = DataStore
