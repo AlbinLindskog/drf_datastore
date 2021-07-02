@@ -1,4 +1,4 @@
-from distutils.core import setup
+from distutils.core import setup, find_packages
 
 setup(
     name='Django restframework datastore',
@@ -6,7 +6,7 @@ setup(
     description='Datastore built on DRF.',
     long_description=open('README.rst').read(),
     install_requires=['djangorestframework>=3.9'],
-    packages=['datastore'],
+    packages=find_packages(),
     author='Albin Lindskog',
     author_email='albin@zerebra.com',
     url='https://github.com/albinlindskog/drf_datastore',
