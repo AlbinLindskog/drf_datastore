@@ -8,6 +8,12 @@ except ImportError:
 
 
 class DataStore(models.Model):
-    key = models.CharField(max_length=255, primary_key=True)
+    key = models.CharField(max_length=255)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     data = JSONField(default=dict, blank=False)
+
+    class Meta:
+        unique_together = ('key', 'user')
+        indexes = [
+            models.Index(fields=['key', 'user']),
+        ]
