@@ -4,6 +4,11 @@ from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
 
+try:
+    from django.db.models import JSONField
+except ImportError:
+    from django.contrib.postgres.fields.jsonb import JSONField
+
 
 class Migration(migrations.Migration):
 
@@ -19,7 +24,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('key', models.CharField(max_length=255)),
-                ('data', models.JSONField(default=dict)),
+                ('data', JSONField(default=dict)),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
