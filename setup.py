@@ -12,4 +12,5 @@ setup(
     author_email='albin@zerebra.com',
     url='https://github.com/albinlindskog/drf_datastore',
     zip_safe=True,
+    license_files = ('license',),
 )
